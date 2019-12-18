@@ -1,8 +1,3 @@
-console.log('Client side javascript is loaded!')
-
-const url = 'http://localhost:3000/weather'
-
-
 const form = document.querySelector('form')
 const searchAddress = document.querySelector('input')
 const messageOne = document.getElementById('message-1')
