@@ -6,7 +6,7 @@ const messageTwo = document.getElementById('message-2')
 form.addEventListener('submit' , (e) => {
     e.preventDefault()
     const location = searchAddress.value
-    const fullAddress = `http://localhost:3000/weather?address=${location}`
+    const fullAddress = `/weather?address=${location}`
 
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''

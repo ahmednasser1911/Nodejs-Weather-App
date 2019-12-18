@@ -4,7 +4,7 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const weatherRequest = require('./utils/weatherRequest')
 const app = express()
-
+const port = process.env.PORT || 3000
 //setting directories
 const publicDir = path.join(__dirname , '../public')
 const viewsDir = path.join(__dirname , '../templates/views')
@@ -99,6 +99,6 @@ app.get('*' , (req , res) => {
     })
 })
 
-app.listen(3000,() => {
+app.listen(port,() => {
     console.log('Server is running...')
 })
