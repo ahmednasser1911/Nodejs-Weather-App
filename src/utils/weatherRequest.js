@@ -15,9 +15,11 @@ const weatherRequest = (lat , long , callback) =>{
             const data = {
                 temperature : res.body.currently.temperature,
                 precipProbability : res.body.currently.precipProbability,
-                todaySummery :  res.body.daily.data[0].summary
+                todaySummery :  res.body.daily.data[0].summary,
+                temperatureHigh: res.body.daily.data[0].temperatureHigh,
+                temperatureLow: res.body.daily.data[0].temperatureLow
             }
-            callback(undefined , `${data.todaySummery} It is currently ${data.temperature} out. we expect ${data.precipProbability}% of rain.`)
+            callback(undefined , data)
         }
     })
 }

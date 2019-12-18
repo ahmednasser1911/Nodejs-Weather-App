@@ -53,22 +53,23 @@ app.get('/weather' , (req , res) => {
             })
         }
 
-        weatherRequest(lat , long , (err , weatherData)=>{
+        weatherRequest(lat , long , (err , {temperature ,precipProbability
+            ,todaySummery ,temperatureHigh ,temperatureLow})=>{
             if(err){
                 return res.send({
                     error : err
                 })
             }        
             res.send({
-                forcast : weatherData,
+                forcast : `${todaySummery} It is currently ${temperature} out with temperatureHigh of 
+                ${temperatureHigh} and temperatureLow of ${temperatureLow}. 
+                we expect ${precipProbability}% of rain.`                ,
                 location ,
             })
         })
     })
    
 })
-
-
 
 app.get('/product' , (req , res) => {
    
@@ -90,6 +91,7 @@ app.get('/help/*' , (req , res) => {
         name:'Ahmed'
     })
 })
+
 
 app.get('*' , (req , res) => {
     res.render('404' ,{
